@@ -12,7 +12,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     String [] items = new String[]{"젤리빈", "킷켓","롤리팝"};
     Button but;
-   // boolean arr= new boolean[]{false, true, false};
+   boolean[] checkArr = {false, true, false};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +42,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 but.setText(items[which]);
             }
         });
+        dialog.setMultiChoiceItems(items, checkArr, new DialogInterface.OnMultiChoiceClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which, boolean isChecked) {
+                but.setText(items[which]);
+            }
+        });
+
         dialog.setIcon(R.drawable.first_icon);
         dialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
